@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Match Kids — Brain Game for Children</title>
+<meta name="description" content="Fun memory card matching game for kids aged 3-8. Learn animals, fruits, numbers and more. No ads. Free on Android.">
+<meta property="og:title" content="Memory Match Kids — Brain Game for Children">
+<meta property="og:description" content="Flip cards, find pairs, train your brain! Free memory game for kids. No ads ever.">
+<meta property="og:image" content="icon-512.png">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
+    color: white;
+    text-align: center;
+  }
+
+  /* Stars */
+  .stars { position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+  .star { position: absolute; border-radius: 50%; background: white; animation: twinkle 2s ease-in-out infinite alternate; }
+  @keyframes twinkle { from { opacity: .1; } to { opacity: .8; } }
+
+  .container {
+    position: relative; z-index: 1;
+    max-width: 600px; margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+
+  /* Icon */
+  .app-icon {
+    width: 120px; height: 120px; border-radius: 28px;
+    box-shadow: 0 12px 40px rgba(108,92,231,.6);
+    margin: 0 auto 24px;
+    display: block;
+  }
+
+  /* Title */
+  .app-title {
+    font-size: 2.8rem; font-weight: 900; letter-spacing: 1px;
+    background: linear-gradient(90deg, #f9ca24, #f0932b, #a29bfe, #74b9ff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+
+  .app-subtitle {
+    font-size: 1.05rem; color: rgba(255,255,255,.6);
+    margin-bottom: 36px;
+  }
+
+  /* Emoji row */
+  .emoji-row {
+    font-size: 2.2rem; margin-bottom: 40px;
+    letter-spacing: 8px;
+  }
+
+  /* Feature cards */
+  .features {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px; margin-bottom: 44px;
+    text-align: left;
+  }
+  .feature {
+    background: rgba(255,255,255,.08);
+    border: 1.5px solid rgba(255,255,255,.15);
+    border-radius: 16px; padding: 16px;
+  }
+  .feature .icon { font-size: 1.6rem; margin-bottom: 6px; }
+  .feature .title { font-size: .85rem; font-weight: 800; color: white; margin-bottom: 3px; }
+  .feature .desc { font-size: .75rem; color: rgba(255,255,255,.5); line-height: 1.4; }
+
+  /* Badge */
+  .no-ads {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(0,184,148,.2); border: 1.5px solid rgba(0,184,148,.5);
+    border-radius: 20px; padding: 8px 20px;
+    font-size: .85rem; font-weight: 700; color: #00b894;
+    margin-bottom: 32px;
+  }
+
+  /* Download button */
+  .download-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #f9ca24, #f0932b);
+    color: #1a1a2e; font-size: 1.1rem; font-weight: 900;
+    padding: 18px 48px; border-radius: 50px;
+    text-decoration: none; letter-spacing: .5px;
+    box-shadow: 0 8px 30px rgba(249,202,36,.4);
+    transition: transform .15s, box-shadow .15s;
+    margin-bottom: 16px;
+  }
+  .download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(249,202,36,.5);
+  }
+
+  .store-note {
+    font-size: .78rem; color: rgba(255,255,255,.35);
+    margin-bottom: 56px;
+  }
+
+  /* Age badges */
+  .badges {
+    display: flex; gap: 10px; justify-content: center;
+    flex-wrap: wrap; margin-bottom: 48px;
+  }
+  .badge {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+    border-radius: 20px; padding: 6px 16px;
+    font-size: .78rem; color: rgba(255,255,255,.6);
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid rgba(255,255,255,.1);
+    padding-top: 24px;
+    font-size: .78rem; color: rgba(255,255,255,.3);
+  }
+  footer a { color: rgba(255,255,255,.4); text-decoration: none; }
+  footer a:hover { color: rgba(255,255,255,.7); }
+</style>
+</head>
+<body>
+
+<!-- Stars background -->
+<div class="stars" id="stars"></div>
+
+<div class="container">
+
+  <!-- Icon -->
+  <img src="icon-512.png" alt="Memory Match Kids icon" class="app-icon">
+
+  <!-- Title -->
+  <div class="app-title">Memory Match Kids</div>
+  <div class="app-subtitle">The brain game kids can't put down</div>
+
+  <!-- Emoji row -->
+  <div class="emoji-row">🐶 🍎 🔢 🚀 🐠</div>
+
+  <!-- No ads badge -->
+  <div class="no-ads">✅ No Ads · No Subscriptions · Free</div>
+
+  <!-- Features -->
+  <div class="features">
+    <div class="feature">
+      <div class="icon">🧠</div>
+      <div class="title">20 Levels</div>
+      <div class="desc">Animals, fruits, numbers, space, ocean & more</div>
+    </div>
+    <div class="feature">
+      <div class="icon">🔥</div>
+      <div class="title">Daily Challenge</div>
+      <div class="desc">Fresh puzzle every day with streak rewards</div>
+    </div>
+    <div class="feature">
+      <div class="icon">🥚</div>
+      <div class="title">Mystery Rewards</div>
+      <div class="desc">Crack eggs, collect stickers, level up your character</div>
+    </div>
+    <div class="feature">
+      <div class="icon">👨‍👩‍👧</div>
+      <div class="title">Parent Dashboard</div>
+      <div class="desc">See what your child learned today</div>
+    </div>
+    <div class="feature">
+      <div class="icon">🔊</div>
+      <div class="title">Voice Narration</div>
+      <div class="desc">Every card speaks its name out loud</div>
+    </div>
+    <div class="feature">
+      <div class="icon">🛡️</div>
+      <div class="title">COPPA Safe</div>
+      <div class="desc">No data collected. Safe for children under 13</div>
+    </div>
+  </div>
+
+  <!-- Download -->
+  <a href="https://play.google.com/store/apps/details?id=com.memorymatch.kids"
+     class="download-btn" target="_blank">
+    ▶ Get it Free on Google Play
+  </a>
+  <div class="store-note">Free · Android · Ages 3–8 · No ads</div>
+
+  <!-- Age badges -->
+  <div class="badges">
+    <div class="badge">👶 Ages 3–8</div>
+    <div class="badge">📱 Android</div>
+    <div class="badge">🎓 Educational</div>
+    <div class="badge">🌐 Works Offline</div>
+    <div class="badge">🔒 No Data Collected</div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Memory Match Kids &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+    <p style="margin-top:6px">Built with ❤️ for kids everywhere</p>
+  </footer>
+
+</div>
+
+<script>
+// Generate stars
+const starsEl = document.getElementById('stars');
+for (let i = 0; i < 60; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  const size = Math.random() * 2 + 1;
+  s.style.cssText = `
+    width:${size}px; height:${size}px;
+    left:${Math.random()*100}%;
+    top:${Math.random()*100}%;
+    animation-delay:${Math.random()*3}s;
+    animation-duration:${Math.random()*2+1.5}s;
+  `;
+  starsEl.appendChild(s);
+}
+</script>
+</body>
+</html>
